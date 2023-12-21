@@ -1,0 +1,23 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Hello-pipe-line_as-code') {
+            agent{
+                label 'linux'
+            }
+            steps {
+                echo 'Hello World'
+                sh 'date'
+                sh 'pwd'
+                sh '''
+                   echo 'now we are good'
+                   ls
+                   date
+                   pwd
+                 
+                 '''
+            }
+        }
+    }
+}
